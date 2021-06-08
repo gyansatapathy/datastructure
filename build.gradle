@@ -13,13 +13,14 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    implementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
 
 test {
     useJUnitPlatform()
 }
+
 
 
 tasks.withType(Test) {
@@ -56,4 +57,9 @@ tasks.withType(Test) {
             }
         }
     }
+}
+
+jar {
+    archiveBaseName = 'gs-datastructre'
+    archiveVersion =  System.currentTimeMillis().toString()
 }
