@@ -2,7 +2,7 @@ package com.gs.ds.heap;
 
 import java.lang.reflect.Array;
 
-public abstract class Heap<T extends Comparable> {
+public abstract class Heap <T extends Comparable> {
     T[] array;
     int size = 0;
     private int maxSize = 40;
@@ -51,7 +51,7 @@ public abstract class Heap<T extends Comparable> {
     }
 
     public T getElementAtIndex(int index) {
-      return array[index];
+        return array[index];
     }
 
     public void swapElements(int firstIndex, int secondIndex) {
@@ -86,3 +86,4 @@ public abstract class Heap<T extends Comparable> {
         return value;
     }
 }
+

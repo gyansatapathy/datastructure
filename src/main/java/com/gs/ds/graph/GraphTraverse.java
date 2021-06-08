@@ -1,6 +1,5 @@
 package com.gs.ds.graph;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.Queue;
 public class GraphTraverse {
     private static boolean[] nodeVisitedList;
 
-    public static void traverseByDepth(@org.jetbrains.annotations.NotNull Graph graph){
+    public static void traverseByDepth(Graph graph){
         nodeVisitedList = new boolean[graph.getNoOfVertices()];
 
         depthFirstTraverse(nodeVisitedList,0,graph);
@@ -27,7 +26,7 @@ public class GraphTraverse {
         System.out.println();
     }
 
-    private static void depthFirstTraverse(@NotNull boolean[] nodeVisitedList,int vertex, Graph graph){
+    private static void depthFirstTraverse(boolean[] nodeVisitedList,int vertex, Graph graph){
 
         if(nodeVisitedList[vertex]){
             return;
@@ -45,7 +44,7 @@ public class GraphTraverse {
 
     }
 
-    public static void traverseByBreadth(@NotNull Graph graph){
+    public static void traverseByBreadth(Graph graph){
 
         nodeVisitedList = new boolean[graph.getNoOfVertices()];
         breadthFirstTraversal(nodeVisitedList, 0, graph);

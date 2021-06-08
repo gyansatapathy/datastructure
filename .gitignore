@@ -1,3 +1,4 @@
-data-structure.iml
 /target
 .idea
+.gradle
+/build

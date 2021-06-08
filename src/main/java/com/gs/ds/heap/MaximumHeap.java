@@ -14,23 +14,23 @@ public class MaximumHeap<T extends Comparable> extends Heap {
         int rightIndex = getRightChildIndex(index);
         int largerIndex = -1;
 
-        if(leftIndex != -1 && rightIndex != -1){
-            largerIndex = getElementAtIndex(leftIndex).compareTo(getElementAtIndex(rightIndex)) > 0 ? leftIndex: rightIndex;
+        if (leftIndex != -1 && rightIndex != -1) {
+            largerIndex = getElementAtIndex(leftIndex).compareTo(getElementAtIndex(rightIndex)) > 0 ? leftIndex : rightIndex;
         }
 
-        if(leftIndex != -1){
+        if (leftIndex != -1) {
             largerIndex = leftIndex;
         }
 
-        if(rightIndex != -1){
+        if (rightIndex != -1) {
             largerIndex = rightIndex;
         }
 
-        if(largerIndex == -1){
+        if (largerIndex == -1) {
             return;
         }
 
-        if(getElementAtIndex(largerIndex).compareTo(getElementAtIndex(index)) > 0) {
+        if (getElementAtIndex(largerIndex).compareTo(getElementAtIndex(index)) > 0) {
             swapElements(largerIndex, index);
             siftDown(largerIndex);
         }
@@ -39,9 +39,9 @@ public class MaximumHeap<T extends Comparable> extends Heap {
     public void siftUp(int index) {
         int parentIndex = getParentIndex(index);
 
-        if(parentIndex != -1) {
+        if (parentIndex != -1) {
             if (getElementAtIndex(index).compareTo(getElementAtIndex(parentIndex)) > 0) {
-                swapElements(parentIndex,index);
+                swapElements(parentIndex, index);
                 siftUp(parentIndex);
             }
         }

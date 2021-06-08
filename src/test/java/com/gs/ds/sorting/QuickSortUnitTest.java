@@ -1,10 +1,8 @@
 package com.gs.ds.sorting;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class QuickSortUnitTest {
 
@@ -15,6 +13,9 @@ public class QuickSortUnitTest {
 
         QuickSort.sortIntArray(testArray);
 
-        assertThat(testArray, is(equalTo(expectedArray)));
+        assertEquals(testArray.length, expectedArray.length);
+        for(int i = 0; i < expectedArray.length; i++){
+            assertEquals(expectedArray[i], testArray[i]);
+        }
     }
 }

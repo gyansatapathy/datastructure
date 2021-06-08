@@ -3,6 +3,7 @@ package com.gs.ds.graph;
 import java.util.List;
 
 public interface Graph {
+
     enum GraphType {
         DIRECTED,
         UNDIRECTED

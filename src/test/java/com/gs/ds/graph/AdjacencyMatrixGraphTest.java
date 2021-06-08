@@ -1,8 +1,9 @@
 package com.gs.ds.graph;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AdjacencyMatrixGraphTest {
 
@@ -13,10 +14,10 @@ public class AdjacencyMatrixGraphTest {
         assert (adjacencyMatrixGraph.getNoOfVertices() == 5);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void check_for_adding_invalid_vertex_number() {
         AdjacencyMatrixGraph adjacencyMatrixGraph = new AdjacencyMatrixGraph(5, Graph.GraphType.DIRECTED);
-        adjacencyMatrixGraph.addEdges(1, 7);
+        assertThrows(IllegalArgumentException.class, () -> adjacencyMatrixGraph.addEdges(1, 7));
     }
 
     @Test
@@ -27,20 +28,20 @@ public class AdjacencyMatrixGraphTest {
         assert (adjacencyMatrixGraph.getAdjacentVertices(2).get(0) == 3);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test()
     public void check_for_adjacent_vertixes_for_invalid_vertex_number() {
         AdjacencyMatrixGraph adjacencyMatrixGraph = new AdjacencyMatrixGraph(5, Graph.GraphType.DIRECTED);
         adjacencyMatrixGraph.addEdges(1, 3);
-        List<Integer> adjacentVertixes = adjacencyMatrixGraph.getAdjacentVertices(8);
+        assertThrows(IllegalArgumentException.class, () -> adjacencyMatrixGraph.getAdjacentVertices(8));
     }
 
     @Test
     public void add_adjacent_vertex_to_an_undirected_graph() {
         AdjacencyMatrixGraph adjacencyMatrixGraph = new AdjacencyMatrixGraph(5, Graph.GraphType.UNDIRECTED);
         adjacencyMatrixGraph.addEdges(2, 3);
-        assert (adjacencyMatrixGraph.getAdjacentVertices(2).size() == 1);
-        assert (adjacencyMatrixGraph.getAdjacentVertices(3).size() == 1);
-        assert (adjacencyMatrixGraph.getAdjacentVertices(2).get(0) == 3);
-        assert (adjacencyMatrixGraph.getAdjacentVertices(3).get(0) == 2);
+        assertEquals (1,adjacencyMatrixGraph.getAdjacentVertices(2).size());
+        assertEquals (1,adjacencyMatrixGraph.getAdjacentVertices(3).size());
+        assertEquals (1,adjacencyMatrixGraph.getAdjacentVertices(2).size());
+        assertEquals (1,adjacencyMatrixGraph.getAdjacentVertices(3).size());
     }
 }
